@@ -5,6 +5,12 @@ var vm = new Vue({
         inputMethod: null,
         new_message: ""
     },
+    mounted: function() {
+        var myStorage = window.localStorage,
+            messages = myStorage.getItem("dd_chat_messages");
+
+        this.chatMessages = JSON.parse(messages) || [];
+    },
     methods: {
         addMessage: function(message) {
             this.chatMessages.push(message);
@@ -26,9 +32,12 @@ var vm = new Vue({
                 }));
                 this.new_message = "";
             }
-        },
-        keyCombo: function($event) {
-            console.log($event);
+        }
+    },
+    watch: {
+        chatMessages(newVal) {
+            var myStorage = window.localStorage;
+            myStorage.setItem("dd_chat_messages", JSON.stringify(this.chatMessages));
         }
     }
 })

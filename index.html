@@ -24,8 +24,10 @@
                 <div class="column">
                     <div class="messages" v-for="m in chatMessages">
                         <div v-tooltip="m.time.toString()" class="message-body" v-bind:class="{ 'speaker-not-me': (m.speaker.toLowerCase() !== 'me') }">
-                            <span class="message-speaker">{{ m.speaker }}=></span>
-                            <span class="message-content">{{ m.message }}</span>
+                            <span class="message-speaker">{{ m.speaker }}</span>
+                            <div class="message-content">
+                                <span>{{ m.message }}</span>
+                            </div>
                         </div>
                     </div>
                     <div class="row">
@@ -49,15 +51,12 @@
     </div>
     <footer class="footer">
         <div class="row">
-            <div class="column column-33">
+            <div class="column column-50">
                 A Debugger Duck.
             </div>
-            <div class="column column-33">
+            <div class="column column-50">
                 Created By
                 <a href="http://someshinyobject.com">SomeShinyObject</a>.
-            </div>
-            <div class="column column-33">
-                <a href="https://milligram.io">Milligram.io</a> is cool.
             </div>
         </div>
     </footer>

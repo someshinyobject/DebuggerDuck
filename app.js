@@ -14,6 +14,7 @@ var DebuggerDuck = function DebuggerDuck(options) {
         // This is about all I say...sorry
         responses = ["quack", "quack quack", "...", "quack?"],
         // Unless you say one of these things
+        // which doesn't work yet
         actionMap = {
             "help": {
                 
@@ -55,7 +56,9 @@ var DebuggerDuck = function DebuggerDuck(options) {
             speaker: "Duck",
             message: responses[getRandomInt(0, responses.length)]
         });
-        self.SendNotification(response);
+        setTimeout(function() {
+            self.SendNotification(response);
+        }, getRandomInt(300, 4500));
     };
 
     // Who's going to observe my interactions
@@ -67,7 +70,7 @@ var DebuggerDuck = function DebuggerDuck(options) {
     // Necessary for when I respond. Sends to everyone who observes me
     self.SendNotification = function(notice, scope) {
         var scope = scope || self;
-        console.log(self);
+
         self.observers.forEach(function(m) {
             m.call(scope, notice);
         })

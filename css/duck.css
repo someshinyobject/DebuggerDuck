@@ -7,7 +7,8 @@
   background-color: #FFFF77; }
 
 .message-speaker {
-  font-weight: bold; }
+  font-weight: bold;
+  font-size: 1rem; }
 
 .footer .column {
   text-align: center; }
