@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Debugger Duck</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+    <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+    <link rel="stylesheet" href="css/duck.css">
+    <link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
+</head>
+
+<body>
+    <div class="content" id="chat" tabindex="0" v-cloak>
+        <div class="container">
+            <h1 class="header">DebuggerDuck</h1>
+            <p>Talk to me about your code problems</p>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="column">
+                    <div class="messages" v-for="m in chatMessages">
+                        <div v-tooltip="m.time.toString()" class="message-body" v-bind:class="{ 'speaker-not-me': (m.speaker.toLowerCase() !== 'me') }">
+                            <span class="message-speaker">{{ m.speaker }}=></span>
+                            <span class="message-content">{{ m.message }}</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="column column-75">
+                            <textarea @focus="setTypedInput" v-on:keyup.enter="sendMessage" v-model="new_message" style="width:100%;" id="new-message"
+                                placeholder="Type your message..."></textarea>
+                        </div>
+                        <div class="column">
+                            <input type="button" @click="sendMessage" class="button-primary" style="width:100%;" value="send">
+                            <input type="button" @click="setSpeechInput" class="button-primary" style="width:100%;" value="start speech">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="row">
+            <div class="column column-33">
+                A Debugger Duck.
+            </div>
+            <div class="column column-33">
+                Created By
+                <a href="http://someshinyobject.com">SomeShinyObject</a>.
+            </div>
+            <div class="column column-33">
+                <a href="https://milligram.io">Milligram.io</a> is cool.
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://unpkg.com/popper.js"></script>
+    <script src="https://unpkg.com/v-tooltip"></script>
+    <script src="vue-implement.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>

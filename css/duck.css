@@ -1,0 +1,33 @@
+@charset "UTF-8";
+.message-body {
+  padding: 5px; }
+
+.speaker-not-me {
+  text-align: right;
+  background-color: #FFFF77; }
+
+.message-speaker {
+  font-weight: bold; }
+
+.footer .column {
+  text-align: center; }
+
+html, body {
+  height: 100%; }
+
+body {
+  display: flex;
+  flex-direction: column; }
+
+.content {
+  flex: 1 0 auto; }
+
+.header {
+  letter-spacing: -.4rem;
+  margin-bottom: 0rem; }
+
+[v-cloak] > * {
+  display: none; }
+
+[v-cloak]::before {
+  content: "loading…"; }

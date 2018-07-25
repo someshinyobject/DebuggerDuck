@@ -1,0 +1,16 @@
+h1 {
+    letter-spacing: -.4rem;
+    margin-bottom: 0rem;
+}
+
+.message-body {
+    padding: 5px;
+}
+
+.speaker-not-me {
+    text-align: right;
+    background-color: #FFFF77;
+}
+.message-speaker {
+    font-weight: bold;    
+}
